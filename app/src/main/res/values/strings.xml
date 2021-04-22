@@ -1,0 +1,34 @@
+<resources>
+    <string name="app_name">S. R. Citas</string>
+    <string name="label_login">Inicio de sesión</string>
+    <string name="label_email">Correo</string>
+    <string name="label_password">Contraseña</string>
+    <string name="buton_login">Ingresar</string>
+    <string name="go_to_registrer">¿Si aun no te has registrado presiona aquí?</string>
+    <string name="label_register">label-register</string>
+    <string name="label_regis">Registrate</string>
+    <string name="label_name">Nombre completo</string>
+    <string name="buton_register">Confirmar Registro</string>
+    <string name="go_to_login">¿Ya tienes una cuenta?</string>
+    <string name="please_fill_your_data">Por favor completa tus datos</string>
+    <string name="option_menu">Menú de opciones</string>
+    <string name="create_appointment">CREAR CITA</string>
+    <string name="my_appointment">MI CITAS</string>
+    <string name="logout">cerrar sessión</string>
+    <string name="label_descripcion">Descripción</string>
+    <string name="label_specialty">Especialidad</string>
+    <string name="label_tipo_cita">Tipo de cita</string>
+    <string name="tipo1">Consulta</string>
+    <string name="tipo2">Examen</string>
+    <string name="tipo3">Operación</string>
+    <string name="btn_next">siguiente</string>
+    <string name="label_doctor">Médico</string>
+    <string name="label_schedule_date">Fecha de la cita</string>
+    <string name="btn_confirm">Confirmar cita</string>
+    <string name="date_format">%1$d-%2$s-%3$s</string>
+
+    <string name="item_appointment_id">Cita médica %1$d</string>
+    <string name="item_appointment_date">Atención el día %1$s</string>
+    <string name="item_appointment_time">A las %1$s</string>
+    <string name="my_appointments">Mis citas Médicas</string>
+</resources>
