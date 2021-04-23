@@ -1,5 +1,6 @@
 package com.lopez.samuel.myappointment
 
+import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
@@ -19,8 +20,12 @@ class CreateAppointmentActivity : AppCompatActivity() {
         setContentView(R.layout.activity_create_appointment)
 
         btnNext.setOnClickListener {
-            cvStep1.visibility = View.GONE
-            cvStep2.visibility = View.VISIBLE
+            if(etDescription.text.toString().length < 3){
+                etDescription.error = getString(R.string.validate_appointment_description)
+            }else{
+                cvStep1.visibility = View.GONE
+                cvStep2.visibility = View.VISIBLE
+            }
         }
 
         btnConfirmAppointment.setOnClickListener {
@@ -110,6 +115,26 @@ class CreateAppointmentActivity : AppCompatActivity() {
 
     }
 
+    override fun onBackPressed() {
+        if(cvStep2.visibility == View.VISIBLE){
+            cvStep2.visibility = View.GONE
+            cvStep1.visibility = View.VISIBLE
+        }else if(cvStep1.visibility == View.VISIBLE){
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("¿Estas seguro que deseas salir?")
+            builder.setMessage("Si abandonas el registro, los datos que has escrito se perderan")
+            builder.setPositiveButton("Si, Salir") { _, _ ->
+                finish()
+
+            }
+            builder.setNegativeButton("Continuar registro"){ dialog, _->
+                dialog.dismiss()
+            }
+            val dialog = builder.create()
+            dialog.show()
+        }
+
+    }
 
     // extencion fucntion
     //fun Int.twoDigits(): String

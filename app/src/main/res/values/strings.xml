@@ -32,4 +32,5 @@
     <string name="item_appointment_time">A las %1$s</string>
     <string name="my_appointments">Mis citas Médicas</string>
     <string name="press_back_again">presiones una vez más para salir</string>
+    <string name="validate_appointment_description">Debes escribir una descripción mayor a 3</string>
 </resources>
