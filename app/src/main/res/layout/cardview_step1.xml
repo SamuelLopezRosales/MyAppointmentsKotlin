@@ -1,0 +1,101 @@
+
+
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.CreateAppointmentActivity"
+        android:id="@+id/cvStep1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="8dp"
+        app:contentPadding="12dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/label_descripcion"
+                android:textColor="@color/letras" />
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/letras" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/label_specialty"
+                android:textColor="@color/letras" />
+
+
+            <Spinner
+                android:id="@+id/spinnerSpecialties"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"></Spinner>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/label_tipo_cita"
+                android:textColor="@color/letras" />
+
+            <RadioGroup
+                android:id="@+id/radioGrupType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:checkedButton="@id/rbType1"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbType1"
+                    android:checked="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tipo1"
+                    android:textColor="@color/letras" />
+
+                <RadioButton
+                    android:id="@+id/rbType2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tipo2"
+                    android:textColor="@color/letras" />
+
+                <RadioButton
+                    android:id="@+id/rbType3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tipo3"
+                    android:textColor="@color/letras" />
+
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/menuButton"
+                android:layout_width="match_parent"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="16dp"
+                android:drawableEnd="@drawable/ic_navigate_next"
+                android:text="@string/btn_next" />
+
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+

@@ -1,9 +1,10 @@
-package com.lopez.samuel.myappointment
+package com.lopez.samuel.myappointment.ui
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.lopez.samuel.myappointment.R
 import com.lopez.samuel.myappointment.model.Appointment
 import kotlinx.android.synthetic.main.item_appointment.view.*
 

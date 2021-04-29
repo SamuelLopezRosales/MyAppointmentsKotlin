@@ -1,10 +1,11 @@
-package com.lopez.samuel.myappointment
+package com.lopez.samuel.myappointment.ui
 
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.lopez.samuel.myappointment.PreferenceHelper
 import com.lopez.samuel.myappointment.PreferenceHelper.set
+import com.lopez.samuel.myappointment.R
 import kotlinx.android.synthetic.main.activity_menu.*
 
 class MenuActivity : AppCompatActivity() {
@@ -25,7 +26,7 @@ class MenuActivity : AppCompatActivity() {
 
         btnLogout.setOnClickListener {
             clearSessionPreference()
-            val intent = Intent(this,MainActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
             finish()
 

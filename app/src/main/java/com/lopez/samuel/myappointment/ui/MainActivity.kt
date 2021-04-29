@@ -1,21 +1,20 @@
-package com.lopez.samuel.myappointment
+package com.lopez.samuel.myappointment.ui
 
-import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
+import com.lopez.samuel.myappointment.PreferenceHelper
 import kotlinx.android.synthetic.main.activity_main.*
 import com.lopez.samuel.myappointment.PreferenceHelper.get
 import com.lopez.samuel.myappointment.PreferenceHelper.set
+import com.lopez.samuel.myappointment.R
 
 class MainActivity : AppCompatActivity() {
 
     private val snackbar by lazy { // significa que si se requiere se llama sino permanecera nula
-        Snackbar.make(mainLayout,R.string.press_back_again, Snackbar.LENGTH_SHORT)
+        Snackbar.make(mainLayout, R.string.press_back_again, Snackbar.LENGTH_SHORT)
     }
 
         override fun onCreate(savedInstanceState: Bundle?) {
@@ -75,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         private fun goToMenuActivity(){
-            val intent = Intent(this,MenuActivity::class.java)
+            val intent = Intent(this, MenuActivity::class.java)
             startActivity(intent)
             finish()
         }

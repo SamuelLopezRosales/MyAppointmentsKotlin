@@ -1,8 +1,9 @@
-package com.lopez.samuel.myappointment
+package com.lopez.samuel.myappointment.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import com.lopez.samuel.myappointment.R
 import com.lopez.samuel.myappointment.model.Appointment
 import kotlinx.android.synthetic.main.activity_appointments.*
 
