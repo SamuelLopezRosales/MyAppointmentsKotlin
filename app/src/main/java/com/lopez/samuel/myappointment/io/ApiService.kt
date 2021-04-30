@@ -1,15 +1,20 @@
 package com.lopez.samuel.myappointment.io
 
+import com.lopez.samuel.myappointment.model.Doctor
 import com.lopez.samuel.myappointment.model.Specialty
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 
 interface ApiService {
 
     @GET("specialties")
     abstract fun getSpecialties(): Call<ArrayList<Specialty>>
+
+    @GET("specialties/{specialty}/doctors")
+    abstract fun getDoctors(@Path("specialty") specialtyId: Int): Call<ArrayList<Doctor>>
 
 
     companion object Factory{

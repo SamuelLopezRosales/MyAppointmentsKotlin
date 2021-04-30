@@ -6,11 +6,13 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.RadioButton
 import android.widget.Toast
 import com.lopez.samuel.myappointment.R
 import com.lopez.samuel.myappointment.io.ApiService
+import com.lopez.samuel.myappointment.model.Doctor
 import com.lopez.samuel.myappointment.model.Specialty
 import kotlinx.android.synthetic.main.activity_create_appointment.*
 import kotlinx.android.synthetic.main.cardview_step1.*
@@ -63,6 +65,7 @@ class CreateAppointmentActivity : AppCompatActivity() {
 
 
         loadSpecialties()
+        listenSpecialtyCHange()
 
 
 
@@ -155,17 +158,51 @@ class CreateAppointmentActivity : AppCompatActivity() {
                 if(response.isSuccessful){ // cuando es correcto esta entre 200 y 300
                     val specialties = response.body() // obtenemos un arrayList de especialidades
 
-                    val specialyOptions = ArrayList<String>()
-                    specialties?.forEach{
-                        specialyOptions.add(it.name)
-                    }
-                    spinnerSpecialties.adapter = ArrayAdapter<String>(this@CreateAppointmentActivity, android.R.layout.simple_list_item_1,specialyOptions)
+                    spinnerSpecialties.adapter = ArrayAdapter<Specialty>(this@CreateAppointmentActivity, android.R.layout.simple_list_item_1,specialties)
                 }
             }
 
         })
 
 
+    }
+
+    private fun loadDoctors(SpecialtyId: Int){
+        val call = apiService.getDoctors(SpecialtyId)
+        call.enqueue(object: Callback<ArrayList<Doctor>>{
+            override fun onFailure(call: Call<ArrayList<Doctor>>, t: Throwable) {
+                Toast.makeText(this@CreateAppointmentActivity,getString(R.string.error_loading_doctors), Toast.LENGTH_SHORT).show()
+
+            }
+
+            override fun onResponse(call: Call<ArrayList<Doctor>>, response: Response<ArrayList<Doctor>>) {
+                if(response.isSuccessful){ // cuando es correcto esta entre 200 y 300
+                    val doctors = response.body() // obtenemos un arrayList de especialidades
+
+                    spinnerDoctors.adapter = ArrayAdapter<Doctor>(this@CreateAppointmentActivity, android.R.layout.simple_list_item_1,doctors)
+                }
+            }
+
+        })
+
+    }
+
+
+    private fun listenSpecialtyCHange(){
+        // obtengo el id del spinner Specialties
+        spinnerSpecialties.onItemSelectedListener = object: AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(adapter: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                // adapter nos permitira ingresar a los id
+                val specialty = adapter?.getItemAtPosition(position) as Specialty
+                Toast.makeText(this@CreateAppointmentActivity, "Id: ${specialty.id}", Toast.LENGTH_SHORT).show()
+                loadDoctors(specialty.id)
+            }
+
+        }
     }
 
     private fun showAppointmentDataToConfirm(){
