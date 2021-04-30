@@ -42,4 +42,9 @@
     <string name="error_loading_hours">Error al cargar las horas</string>
     <string name="label_select_doctor_and_date">Seleccione un médico y una fecha para ver las horas disponibles</string>
     <string name="label_not_available_hours">No se encontraron horas disponibles para esté médico y esta fecha</string>
+    <string name="error_login">Error al hacer login</string>
+    <string name="error_login_response">Se obtuvo una respuesta incorrecta del servidor</string>
+    <string name="credential_incorrect">Las credenciales son incorrectas</string>
+    <string name="please_outpu_">Porfavor ingrese un correo y una contraseña</string>
+    <string name="welcome_name">Bienvenido %1$s</string>
 </resources>

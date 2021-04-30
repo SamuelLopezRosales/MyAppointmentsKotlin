@@ -1,4 +1,4 @@
-package com.lopez.samuel.myappointment
+package com.lopez.samuel.myappointment.util
 
 
 import android.content.Context

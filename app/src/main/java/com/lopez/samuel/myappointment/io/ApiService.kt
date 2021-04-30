@@ -1,5 +1,6 @@
 package com.lopez.samuel.myappointment.io
 
+import com.lopez.samuel.myappointment.io.response.LoginResponse
 import com.lopez.samuel.myappointment.model.Doctor
 import com.lopez.samuel.myappointment.model.Schedule
 import com.lopez.samuel.myappointment.model.Specialty
@@ -8,9 +9,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -22,6 +21,13 @@ interface ApiService {
 
     @GET("schedule/hours")
     abstract fun getHours(@Query("doctor_id") doctorId: Int, @Query("date") date: String): Call<Schedule>
+
+    @POST("login")
+    abstract fun postLogin(@Query("email") email: String, @Query("password") password: String):
+            Call<LoginResponse>
+
+    @POST("logout")
+    abstract fun postLogout(@Header("Authorization") authHeader: String): Call<Void>
 
 
     companion object Factory{
