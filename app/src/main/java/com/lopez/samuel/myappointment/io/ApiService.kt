@@ -1,12 +1,16 @@
 package com.lopez.samuel.myappointment.io
 
 import com.lopez.samuel.myappointment.model.Doctor
+import com.lopez.samuel.myappointment.model.Schedule
 import com.lopez.samuel.myappointment.model.Specialty
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface ApiService {
 
@@ -16,14 +20,22 @@ interface ApiService {
     @GET("specialties/{specialty}/doctors")
     abstract fun getDoctors(@Path("specialty") specialtyId: Int): Call<ArrayList<Doctor>>
 
+    @GET("schedule/hours")
+    abstract fun getHours(@Query("doctor_id") doctorId: Int, @Query("date") date: String): Call<Schedule>
+
 
     companion object Factory{
         private const val BASE_URL = "http://192.168.1.66:8000/api/"
 
         fun create(): ApiService {
+            val interceptor = HttpLoggingInterceptor()
+            interceptor.level = HttpLoggingInterceptor.Level.BODY
+            val client = OkHttpClient.Builder().addInterceptor(interceptor).build()
+
             val retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
+                    .client(client)
                     .build()
                 return retrofit.create(ApiService::class.java)
         }
