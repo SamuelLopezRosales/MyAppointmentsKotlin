@@ -1,6 +1,7 @@
 package com.lopez.samuel.myappointment.io
 
 import com.lopez.samuel.myappointment.io.response.LoginResponse
+import com.lopez.samuel.myappointment.model.Appointment
 import com.lopez.samuel.myappointment.model.Doctor
 import com.lopez.samuel.myappointment.model.Schedule
 import com.lopez.samuel.myappointment.model.Specialty
@@ -28,6 +29,9 @@ interface ApiService {
 
     @POST("logout")
     abstract fun postLogout(@Header("Authorization") authHeader: String): Call<Void>
+
+    @GET("appointments")
+    abstract fun getAppointments(@Header("Authorization") authHeader: String): Call<ArrayList<Appointment>>
 
 
     companion object Factory{

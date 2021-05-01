@@ -47,4 +47,5 @@
     <string name="credential_incorrect">Las credenciales son incorrectas</string>
     <string name="please_outpu_">Porfavor ingrese un correo y una contraseña</string>
     <string name="welcome_name">Bienvenido %1$s</string>
+    <string name="label_created_at">Está se registro el dia %1$s con la siguiente descripción:</string>
 </resources>
