@@ -48,4 +48,10 @@
     <string name="please_outpu_">Porfavor ingrese un correo y una contraseña</string>
     <string name="welcome_name">Bienvenido %1$s</string>
     <string name="label_created_at">Está se registro el dia %1$s con la siguiente descripción:</string>
+    <string name="appointment_create_success">Cita registrada correctamente</string>
+    <string name="Error_register_Appointment">Ocurrio un error registrando la cita médica</string>
+    <string name="label_confirmed_password">Confirmar Contraseña</string>
+    <string name="error_please_empy_fields">Por favor completa todos los campos</string>
+    <string name="error_Coincided_passwords">Las contraseñas no coinciden</string>
+    <string name="error_register_user">Hubo un error al registrar el paciente</string>
 </resources>

@@ -1,6 +1,8 @@
 package com.lopez.samuel.myappointment.ui
 
 import android.support.v7.widget.RecyclerView
+import android.transition.AutoTransition
+import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -31,6 +33,8 @@ class AppointmentAdapter
                 tvCreatedAt.text = context.getString(R.string.label_created_at,appointment.createdAt)
 
                 ibExpand.setOnClickListener{
+                    TransitionManager.beginDelayedTransition(parent as ViewGroup, AutoTransition())
+
                     if(LinearLayoutDetails.visibility == View.VISIBLE) {
                         LinearLayoutDetails.visibility = View.GONE
                         ibExpand.setImageResource(R.drawable.ic_expand_more)

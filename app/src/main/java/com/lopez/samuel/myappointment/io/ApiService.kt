@@ -1,6 +1,7 @@
 package com.lopez.samuel.myappointment.io
 
 import com.lopez.samuel.myappointment.io.response.LoginResponse
+import com.lopez.samuel.myappointment.io.response.SimpleResponse
 import com.lopez.samuel.myappointment.model.Appointment
 import com.lopez.samuel.myappointment.model.Doctor
 import com.lopez.samuel.myappointment.model.Schedule
@@ -32,6 +33,29 @@ interface ApiService {
 
     @GET("appointments")
     abstract fun getAppointments(@Header("Authorization") authHeader: String): Call<ArrayList<Appointment>>
+
+    @POST("appointments")
+    @Headers("Accept: application/json")
+    abstract fun storeAppointments(@Header("Authorization") authHeader: String,
+                                  @Query("description") description: String,
+                                  @Query("specialty_id") specialtyId: Int,
+                                  @Query("doctor_id") doctorId: Int,
+                                  @Query("scheduled_date") scheduledDate: String,
+                                  @Query("scheduled_time") scheduledTime: String,
+                                  @Query("type") type: String):
+            Call<SimpleResponse>
+
+
+    @POST("register")
+    @Headers("Accept: application/json")
+    abstract fun postRegister(@Query("email") email: String,
+                              @Query("name") name: String,
+                              @Query("password") password: String,
+                              @Query("password_confirmation") password_confirmation: String
+                              ):
+            Call<LoginResponse>
+
+
 
 
     companion object Factory{
